@@ -1,6 +1,7 @@
 // Perfil del gato: crear, editar, cambiar entre gatos y borrar.
 import { esc, achicarFoto, toast, abrirModal, cerrarModal, edadTexto, fechaLarga, hoyISO } from './util.js';
 import { datos, gatoActivo, guardarGato, borrarGato, elegirGato } from './datos.js';
+import { michiSVG, michiDe } from './michi.js';
 
 // Carita dibujada para cuando el gato todavía no tiene foto.
 export const CARITA = 'data:image/svg+xml;utf8,' + encodeURIComponent(
@@ -11,8 +12,11 @@ export const CARITA = 'data:image/svg+xml;utf8,' + encodeURIComponent(
   <path d="M56 74 h8 l-4 5 z" fill="#E85500"/><path d="M60 79 q-6 7 -12 2 M60 79 q6 7 12 2" stroke="#3B2314" stroke-width="2.5" fill="none" stroke-linecap="round"/>
   <path d="M30 72 h-14 M30 78 h-12 M90 72 h14 M90 78 h12" stroke="#3B2314" stroke-width="2" stroke-linecap="round"/></svg>`);
 
+// Sin foto, se muestra su michi dibujado.
 export function fotoDe(gato) {
-  return gato && gato.foto ? gato.foto : CARITA;
+  if (!gato) return CARITA;
+  if (gato.foto) return gato.foto;
+  return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(michiSVG(michiDe(gato), { margen: 14, fondo: '#FFE6D1' }));
 }
 
 export function avatar(gato, clase = 'avatar--l') {
@@ -89,6 +93,7 @@ export function renderGato(el, ruta) {
 
     ${nuevo ? '' : `
     <div class="pila no-imprimir">
+      <a class="btn btn--secundario btn--bloque" href="#/michi">🎨 Crear su versión dibujada</a>
       <a class="btn btn--secundario btn--bloque" href="#/gato/nuevo">➕ Agregar otro gato</a>
       <button class="btn btn--peligro btn--bloque" type="button" id="borrarGato">Borrar el perfil de ${esc(g.nombre)}</button>
     </div>`}
@@ -113,7 +118,7 @@ export function renderGato(el, ruta) {
 
   quitar.addEventListener('click', () => {
     g.foto = '';
-    vista.src = CARITA;
+    vista.src = fotoDe(g);
     quitar.hidden = true;
   });
 

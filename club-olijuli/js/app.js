@@ -6,6 +6,8 @@ import { renderGato, elegirGatoModal, avatar } from './gato.js';
 import { renderSalud, renderCarnet } from './salud.js';
 import { renderPerdido } from './perdido.js';
 import { renderAjustes, conectarInstalar } from './ajustes.js';
+import { renderMichi } from './michi.js';
+import { renderStickers } from './stickers.js';
 
 const RUTAS = {
   '': { vista: renderInicio, tab: 'inicio' },
@@ -14,7 +16,9 @@ const RUTAS = {
   'salud': { vista: renderSalud, tab: 'salud' },
   'carnet': { vista: renderCarnet, tab: 'salud' },
   'perdido': { vista: renderPerdido, tab: 'perdido' },
-  'ajustes': { vista: renderAjustes, tab: 'ajustes' }
+  'ajustes': { vista: renderAjustes, tab: 'ajustes' },
+  'michi': { vista: renderMichi, tab: 'gato' },
+  'stickers': { vista: renderStickers, tab: 'gato' }
 };
 
 const main = document.getElementById('vista');

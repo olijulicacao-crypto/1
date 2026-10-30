@@ -4,6 +4,7 @@ import { gatoActivo } from './datos.js';
 import { avatar, resumenGato } from './gato.js';
 import { proximos, itemRecordatorio, conectarCalendario } from './salud.js';
 import { tarjetaInstalar } from './ajustes.js';
+import { michiSVG, michiDe } from './michi.js';
 
 function bienvenida(el) {
   el.innerHTML = `
@@ -51,6 +52,12 @@ export function renderInicio(el) {
       </a>
       <a class="acceso" href="#/gato">
         <span class="acceso__icono">🐱</span><b>Perfil</b><small>Foto, peso y señas</small>
+      </a>
+      <a class="acceso acceso--michi" href="#/michi">
+        <span class="acceso__michi">${michiSVG(michiDe(gato), { tam: 64 })}</span><b>Crea tu Michi</b><small>Dibuja a ${esc(gato.nombre)} a tu pinta</small>
+      </a>
+      <a class="acceso" href="#/stickers">
+        <span class="acceso__icono">💬</span><b>Stickers</b><small>8 stickers para WhatsApp</small>
       </a>
     </div>
 

@@ -1,8 +1,8 @@
 // Guarda la app en el teléfono para que abra rápido y funcione sin internet.
-const VERSION = 'club-olijuli-v1';
+const VERSION = 'club-olijuli-v2';
 const ARCHIVOS = [
   './', './index.html', './manifest.webmanifest', './css/app.css',
-  './js/app.js', './js/util.js', './js/datos.js', './js/inicio.js', './js/gato.js', './js/salud.js', './js/perdido.js', './js/ajustes.js',
+  './js/app.js', './js/util.js', './js/datos.js', './js/inicio.js', './js/gato.js', './js/salud.js', './js/perdido.js', './js/ajustes.js', './js/michi.js', './js/stickers.js',
   './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png', './icons/favicon.png', './icons/logo-olijuli.jpg'
 ];
 
