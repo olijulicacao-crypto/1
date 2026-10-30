@@ -334,3 +334,7 @@ main { max-width: 640px; margin: 0 auto; padding: 18px 16px 8px; outline: none; 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* Netlify deja un marco vacío donde iría su badge (que la política de seguridad no deja dibujar).
+   Que no capture los toques destinados al contenido que queda debajo. */
+#nl-badge-frame { pointer-events: none !important; }
