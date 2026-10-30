@@ -16,8 +16,11 @@
     Content-Type = "application/manifest+json"
     Cache-Control = "no-cache"
 
+# Política de seguridad: solo se ejecuta el código propio del Club (sin scripts externos ni en línea).
+# Según la documentación de Netlify, esto también evita que aparezca su badge flotante sobre el menú.
 [[headers]]
   for = "/*"
   [headers.values]
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; manifest-src 'self'; worker-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'"
