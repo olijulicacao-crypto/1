@@ -8,7 +8,7 @@ Los datos se guardan solo en el teléfono (localStorage) y se pueden respaldar e
 
 - [x] **Etapa 1:** perfil del gato (varios gatos), carnet de salud con recordatorios (.ics y Google Calendar), carnet para la consulta (imprimible), afiche "SE BUSCA", respaldo y restauración.
 - [x] **Etapa 2:** Crea tu Michi (editor SVG: pelaje, diseño, ojos, orejas y accesorios, incluida la mochila OliJuli en los colores de la tienda) y pack de 8 stickers PNG 512x512 transparentes.
-- [ ] **Etapa 3:** minijuego, diario de aventuras, pasaporte de explorador, fondos de pantalla y música.
+- [x] **Etapa 3:** minijuego "Michi explorador" (45 s, récord por gato), diario de aventuras con tarjeta resumen del mes, pasaporte de 16 sellos automáticos, 3 fondos de pantalla y sección de música.
 
 ## Archivos
 
@@ -24,6 +24,10 @@ Los datos se guardan solo en el teléfono (localStorage) y se pueden respaldar e
 | `js/perdido.js` | Afiche "SE BUSCA" (canvas) |
 | `js/michi.js` | Dibujo del michi (SVG) y editor "Crea tu Michi" |
 | `js/stickers.js` | Pack de stickers con frases |
+| `js/diario.js` | Diario de aventuras, pasaporte de sellos y tarjeta del mes |
+| `js/juego.js` | Minijuego "Michi explorador" (canvas) |
+| `js/fondos.js` | Fondos de pantalla |
+| `js/club.js` | Menú "Club" y música relajante |
 | `js/inicio.js`, `js/ajustes.js`, `js/app.js` | Inicio, ajustes y navegación |
 
 ## Probarla en el computador

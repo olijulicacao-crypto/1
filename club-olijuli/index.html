@@ -25,17 +25,20 @@
       <img src="icons/icon-192.png" alt="" width="36" height="36">
       <span>Club <b>OliJuli</b></span>
     </a>
-    <button class="barra__gato" id="cambiarGato" type="button" hidden></button>
+    <div class="barra__derecha">
+      <button class="barra__gato" id="cambiarGato" type="button" hidden></button>
+      <a class="barra__ajustes" href="#/ajustes" aria-label="Ajustes"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg></a>
+    </div>
   </header>
 
   <main id="vista" tabindex="-1"></main>
 
   <nav class="tabs" aria-label="Secciones">
     <a href="#/" data-tab="inicio"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9h-5v-5h-6v5H4z"/></svg><span>Inicio</span></a>
-    <a href="#/gato" data-tab="gato"><svg viewBox="0 0 24 24"><path d="M5 4l3 4h8l3-4v9a7 7 0 0 1-14 0z"/><circle cx="9.5" cy="12" r="1" class="r"/><circle cx="14.5" cy="12" r="1" class="r"/></svg><span>Mi gato</span></a>
     <a href="#/salud" data-tab="salud"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="17" rx="3"/><path d="M12 9v7M8.5 12.5h7"/></svg><span>Salud</span></a>
+    <a href="#/aventuras" data-tab="aventuras"><svg viewBox="0 0 24 24"><path d="M3 20l6-14 4 8 3-5 5 11z"/><circle cx="17" cy="5" r="2"/></svg><span>Aventuras</span></a>
+    <a href="#/club" data-tab="club"><svg viewBox="0 0 24 24"><path d="M5 4l3 4h8l3-4v9a7 7 0 0 1-14 0z"/><circle cx="9.5" cy="12" r="1" class="r"/><circle cx="14.5" cy="12" r="1" class="r"/></svg><span>Club</span></a>
     <a href="#/perdido" data-tab="perdido" class="tabs__alerta"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg><span>Se busca</span></a>
-    <a href="#/ajustes" data-tab="ajustes"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg><span>Ajustes</span></a>
   </nav>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>

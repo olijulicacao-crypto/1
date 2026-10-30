@@ -8,17 +8,27 @@ import { renderPerdido } from './perdido.js';
 import { renderAjustes, conectarInstalar } from './ajustes.js';
 import { renderMichi } from './michi.js';
 import { renderStickers } from './stickers.js';
+import { renderDiario, renderPasaporte } from './diario.js';
+import { renderJuego, detenerJuego } from './juego.js';
+import { renderFondos } from './fondos.js';
+import { renderClub, renderMusica } from './club.js';
 
 const RUTAS = {
   '': { vista: renderInicio, tab: 'inicio' },
-  'gato': { vista: renderGato, tab: 'gato' },
-  'gato/nuevo': { vista: renderGato, tab: 'gato' },
+  'gato': { vista: renderGato, tab: '' },
+  'gato/nuevo': { vista: renderGato, tab: '' },
   'salud': { vista: renderSalud, tab: 'salud' },
   'carnet': { vista: renderCarnet, tab: 'salud' },
   'perdido': { vista: renderPerdido, tab: 'perdido' },
-  'ajustes': { vista: renderAjustes, tab: 'ajustes' },
-  'michi': { vista: renderMichi, tab: 'gato' },
-  'stickers': { vista: renderStickers, tab: 'gato' }
+  'ajustes': { vista: renderAjustes, tab: '' },
+  'aventuras': { vista: renderDiario, tab: 'aventuras' },
+  'pasaporte': { vista: renderPasaporte, tab: 'aventuras' },
+  'club': { vista: renderClub, tab: 'club' },
+  'michi': { vista: renderMichi, tab: 'club' },
+  'stickers': { vista: renderStickers, tab: 'club' },
+  'juego': { vista: renderJuego, tab: 'club' },
+  'fondos': { vista: renderFondos, tab: 'club' },
+  'musica': { vista: renderMusica, tab: 'club' }
 };
 
 const main = document.getElementById('vista');
@@ -35,6 +45,7 @@ function actualizarBarra() {
 function mostrar() {
   const ruta = location.hash.replace(/^#\/?/, '').split('?')[0];
   const r = RUTAS[ruta] || RUTAS[''];
+  detenerJuego();
   r.vista(main, ruta);
   document.querySelectorAll('.tabs a').forEach(a => a.classList.toggle('activo', a.dataset.tab === r.tab));
   actualizarBarra();

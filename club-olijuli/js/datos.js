@@ -5,7 +5,7 @@ const CLAVE = 'clubOliJuli.v1';
 const VERSION = 1;
 
 function vacio() {
-  return { v: VERSION, dueno: { nombre: '', telefono: '' }, gatos: [], activo: null, salud: [], perdido: {} };
+  return { v: VERSION, dueno: { nombre: '', telefono: '' }, gatos: [], activo: null, salud: [], perdido: {}, extra: {} };
 }
 
 function normalizar(d) {
@@ -76,6 +76,8 @@ export function guardarGato(gato) {
 export function borrarGato(id) {
   estado.gatos = estado.gatos.filter(g => g.id !== id);
   estado.salud = estado.salud.filter(r => r.gatoId !== id);
+  if (Array.isArray(estado.extra.diario)) estado.extra.diario = estado.extra.diario.filter(p => p.gatoId !== id);
+  if (estado.extra.juego) delete estado.extra.juego[id];
   if (estado.activo === id) estado.activo = estado.gatos[0] ? estado.gatos[0].id : null;
   return guardar();
 }
@@ -99,6 +101,46 @@ export function guardarRegistro(reg) {
 export function borrarRegistro(id) {
   estado.salud = estado.salud.filter(r => r.id !== id);
   return guardar();
+}
+
+/* ---------- Diario de aventuras ---------- */
+export function paseosDe(gatoId) {
+  const lista = Array.isArray(estado.extra.diario) ? estado.extra.diario : [];
+  return lista.filter(p => p.gatoId === gatoId);
+}
+
+export function guardarPaseo(paseo) {
+  if (!Array.isArray(estado.extra.diario)) estado.extra.diario = [];
+  const lista = estado.extra.diario;
+  if (!paseo.id) {
+    paseo.id = nuevoId();
+    lista.push(paseo);
+  } else {
+    const i = lista.findIndex(p => p.id === paseo.id);
+    if (i >= 0) lista[i] = paseo; else lista.push(paseo);
+  }
+  return guardar();
+}
+
+export function borrarPaseo(id) {
+  if (Array.isArray(estado.extra.diario)) estado.extra.diario = estado.extra.diario.filter(p => p.id !== id);
+  return guardar();
+}
+
+/* ---------- Minijuego ---------- */
+export function recordDe(gatoId) {
+  return (estado.extra.juego && estado.extra.juego[gatoId]) || 0;
+}
+
+export function guardarRecord(gatoId, puntos) {
+  if (!estado.extra.juego) estado.extra.juego = {};
+  estado.extra.juego[gatoId] = puntos;
+  return guardar();
+}
+
+// Porcentaje aproximado del espacio del navegador en uso (los navegadores permiten unos 5 millones de caracteres).
+export function espacioUsado() {
+  try { return Math.min(100, Math.round((localStorage.getItem(CLAVE) || '').length / 50000)); } catch (e) { return 0; }
 }
 
 /* ---------- Respaldo ---------- */

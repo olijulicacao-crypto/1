@@ -164,18 +164,21 @@ export function renderGato(el, ruta) {
 export function elegirGatoModal(alCambiar) {
   const d = datos();
   const activo = gatoActivo();
-  abrirModal('Mis gatos', `
+  abrirModal(d.gatos.length > 1 ? 'Mis gatos' : 'Mi gato', `
     <div class="lista-gatos">
       ${d.gatos.map(g => `<button type="button" data-id="${esc(g.id)}" class="${activo && activo.id === g.id ? 'activo' : ''}">${avatar(g, 'mini')}<span>${esc(g.nombre)}</span></button>`).join('')}
     </div>
-    <a class="btn btn--secundario btn--bloque" href="#/gato/nuevo" id="agregarDesdeModal">➕ Agregar otro gato</a>
+    <div class="pila">
+      <a class="btn btn--secundario btn--bloque" href="#/gato" data-cerrar>✏️ Editar perfil de ${esc(activo ? activo.nombre : '')}</a>
+      <a class="btn btn--secundario btn--bloque" href="#/gato/nuevo" data-cerrar>➕ Agregar otro gato</a>
+    </div>
   `, cuerpo => {
     cuerpo.querySelectorAll('[data-id]').forEach(b => b.addEventListener('click', () => {
       elegirGato(b.dataset.id);
       cerrarModal();
       alCambiar();
     }));
-    cuerpo.querySelector('#agregarDesdeModal').addEventListener('click', cerrarModal);
+    cuerpo.querySelectorAll('[data-cerrar]').forEach(a => a.addEventListener('click', cerrarModal));
   });
 }
 

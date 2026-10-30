@@ -1,6 +1,7 @@
 // Inicio: bienvenida la primera vez y, después, el resumen del gato con accesos rápidos.
 import { esc } from './util.js';
-import { gatoActivo } from './datos.js';
+import { gatoActivo, paseosDe, recordDe } from './datos.js';
+import { SELLOS, sellosGanados } from './diario.js';
 import { avatar, resumenGato } from './gato.js';
 import { proximos, itemRecordatorio, conectarCalendario } from './salud.js';
 import { tarjetaInstalar } from './ajustes.js';
@@ -29,6 +30,9 @@ export function renderInicio(el) {
   if (!gato) { bienvenida(el); return; }
   const prox = proximos(gato.id).slice(0, 3);
   const chips = resumenGato(gato);
+  const paseos = paseosDe(gato.id).length;
+  const sellos = sellosGanados(gato.id);
+  const record = recordDe(gato.id);
 
   el.innerHTML = `
     <section class="tarjeta hola">
@@ -47,17 +51,17 @@ export function renderInicio(el) {
       <a class="acceso" href="#/salud">
         <span class="acceso__icono">💉</span><b>Carnet de salud</b><small>Vacunas, antiparasitarios y visitas</small>
       </a>
-      <a class="acceso" href="#/carnet">
-        <span class="acceso__icono">🪪</span><b>Carnet para la consulta</b><small>Muéstralo al veterinario</small>
+      <a class="acceso" href="#/aventuras">
+        <span class="acceso__icono">🎒</span><b>Diario de aventuras</b><small>${paseos ? `${paseos} ${paseos === 1 ? 'paseo anotado' : 'paseos anotados'}` : 'Anota su primer paseo'}</small>
       </a>
-      <a class="acceso" href="#/gato">
-        <span class="acceso__icono">🐱</span><b>Perfil</b><small>Foto, peso y señas</small>
+      <a class="acceso" href="#/pasaporte">
+        <span class="acceso__icono">🛂</span><b>Pasaporte</b><small>${sellos} de ${SELLOS.length} sellos</small>
       </a>
       <a class="acceso acceso--michi" href="#/michi">
         <span class="acceso__michi">${michiSVG(michiDe(gato), { tam: 64 })}</span><b>Crea tu Michi</b><small>Dibuja a ${esc(gato.nombre)} a tu pinta</small>
       </a>
-      <a class="acceso" href="#/stickers">
-        <span class="acceso__icono">💬</span><b>Stickers</b><small>8 stickers para WhatsApp</small>
+      <a class="acceso" href="#/juego">
+        <span class="acceso__icono">🎮</span><b>Minijuego</b><small>${record ? `Récord: ${record} puntos` : '¡Juega con tu michi!'}</small>
       </a>
     </div>
 
