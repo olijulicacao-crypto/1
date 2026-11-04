@@ -202,7 +202,7 @@ export async function dibujarTarjetaMes(gato, clave, lista) {
   ctx.fillRect(0, H - 76, W, 76);
   ctx.fillStyle = '#FFF7EF';
   ctx.font = '700 32px "Nunito Sans", Arial, sans-serif';
-  ctx.fillText('Club OliJuli · Viajamos juntos en la mochila MichiGo', W / 2, H - 26);
+  ctx.fillText('Club OliJuli · Explorando el mundo juntos', W / 2, H - 26);
   return c;
 }
 
@@ -241,7 +241,7 @@ export function renderDiario(el) {
           </span>
         </button>`).join('')}
       </section>`;
-    }).join('') : `<div class="tarjeta vacio"><span>🎒</span><p>Cada vez que salgan juntos con la mochila, anótalo aquí. Cada mes te armamos una tarjeta para compartir y vas ganando sellos en tu pasaporte.</p></div>`}
+    }).join('') : `<div class="tarjeta vacio"><span>🎒</span><p>Cada vez que salgan juntos, anótalo aquí. Cada mes te armamos una tarjeta para compartir y vas ganando sellos en tu pasaporte.</p></div>`}
   `;
 
   const recargar = () => renderDiario(el);

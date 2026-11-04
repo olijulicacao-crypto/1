@@ -11,7 +11,7 @@ function bienvenida(el) {
   el.innerHTML = `
     <section class="bienvenida">
       <img class="bienvenida__logo" src="icons/logo-olijuli.jpg" alt="Logo de OliJuli">
-      <p class="eyebrow">Regalo con tu mochila MichiGo</p>
+      <p class="eyebrow">Regalo con tu compra en OliJuli</p>
       <h1>¡Bienvenido al Club OliJuli! 🧡</h1>
       <p class="muted">Gracias por tu compra. Este club es para que cuidar y disfrutar a tu michi sea más fácil.</p>
       <ul>

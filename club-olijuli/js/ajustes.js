@@ -67,9 +67,9 @@ export function renderAjustes(el) {
     </section>
 
     <section class="tarjeta">
-      <h2>¿Necesitas otra mochila?</h2>
-      <p class="muted">La mochila MichiGo te espera en la tienda OliJuli, con envío gratis a todo Chile.</p>
-      <a class="btn btn--secundario btn--bloque" href="https://olijuli13.myshopify.com/products/michigo" target="_blank" rel="noopener">Ir a la tienda OliJuli</a>
+      <h2>¿Algo más para tu michi?</h2>
+      <p class="muted">En la tienda OliJuli hay más soluciones para tu mascota, con envío gratis a todo Chile.</p>
+      <a class="btn btn--secundario btn--bloque" href="https://olijuli13.myshopify.com/collections/soluciones-olijuli" target="_blank" rel="noopener">Ir a la tienda OliJuli</a>
     </section>
 
     <button class="btn btn--peligro btn--bloque" type="button" id="borrarTodo">Borrar todos mis datos</button>
