@@ -1,5 +1,5 @@
 // Guarda la app en el teléfono para que abra rápido y funcione sin internet.
-const VERSION = 'club-olijuli-v4';
+const VERSION = 'club-olijuli-v5';
 const ARCHIVOS = [
   './', './index.html', './manifest.webmanifest', './css/app.css',
   './js/app.js', './js/util.js', './js/datos.js', './js/inicio.js', './js/gato.js', './js/salud.js', './js/perdido.js', './js/ajustes.js', './js/michi.js', './js/stickers.js', './js/diario.js', './js/juego.js', './js/fondos.js', './js/club.js',
